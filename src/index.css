@@ -1,0 +1,135 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+  --color-surface: #f4f7fb;
+  --color-surface-2: #ffffff;
+  --color-surface-3: #eef3f8;
+  --color-border: rgba(148, 163, 184, 0.24);
+  --color-accent: #2c6dd8;
+  --color-accent-2: #4d99f3;
+  --color-success: #2f8f72;
+  --color-warning: #d17f30;
+  --color-error: #d03f3f;
+  --color-muted: #64748b;
+}
+
+@layer base {
+  :root {
+    --text-primary: #0f172a;
+  }
+
+  * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  body {
+    font-family: var(--font-sans);
+    margin: 0;
+    min-height: 100vh;
+    background: var(--color-surface);
+    color: var(--text-primary);
+  }
+
+  [data-theme="dark"] {
+    --color-surface: #0f172a;
+    --color-surface-2: #111827;
+    --color-surface-3: #1e293b;
+    --color-border: rgba(148, 163, 184, 0.16);
+    --color-accent: #4d99f3;
+    --color-accent-2: #7fb1ff;
+    --color-success: #34d399;
+    --color-warning: #f59e0b;
+    --color-error: #f87171;
+    --color-muted: #94a3b8;
+    --text-primary: #e2e8f0;
+  }
+}
+
+@layer utilities {
+  .glass {
+    background: rgba(255, 255, 255, 0.82);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+  .glass-card {
+    background: rgba(255, 255, 255, 0.96);
+    border: 1px solid rgba(148, 163, 184, 0.14);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+  .subtle-glow {
+    box-shadow: 0 0 24px rgba(91, 140, 207, 0.14);
+  }
+  .text-muted {
+    color: var(--color-muted);
+  }
+  .grid-pattern {
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+    background-size: 80px 80px;
+  }
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: rgba(148, 163, 184, 0.2);
+    border-radius: 3px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background: rgba(148, 163, 184, 0.3);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slide-in-from-bottom {
+  from {
+    transform: translateY(1rem);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    transform: translateX(1rem);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.animate-in {
+  animation-duration: 0.3s;
+  animation-fill-mode: both;
+}
+
+.fade-in {
+  animation-name: fade-in;
+}
+
+.slide-in-from-bottom-4 {
+  animation-name: slide-in-from-bottom;
+}
+
+.slide-in-right {
+  animation-name: slide-in-right;
+}
